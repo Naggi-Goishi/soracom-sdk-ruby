@@ -227,6 +227,10 @@ module Soracom
       result
     end
 
+    def list_sessions_events(imsi:nil)
+      @api.get(path: "/subscribers/#{imsi}/events/sessions")
+    end
+
     # SIMの所属Groupを指定あるいは上書き変更
     def set_group(imsi, group_id)
       @api.post(path: "/subscribers/#{imsi}/set_group", payload: { groupId: group_id })
